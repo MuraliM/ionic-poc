@@ -1,17 +1,46 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>Home</ion-title>
-  </ion-navbar>
-</ion-header>
-
-<ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
-</ion-content>
+<ion-header></ion-header>
+<ion-content has-header white-background>
+  <ion-grid>
+    <ion-row padding>
+        <ion-col col-12 col-sm-12 col-md-12 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6>
+            <ion-col col-4 col-sm-2>
+                <img right large src="assets/images/logo/hm.png">
+              </ion-col> 
+            <ion-col left color="primary" col-8 col-sm-10>
+               
+              <ion-icon name="shirt" style="font-size:2em" color="danger"  item-start></ion-icon>
+              <span  style="font-size:1.4em"> SAMPLE HANDLING</span>
+            
+            </ion-col>
+               
+        
+            
+          </ion-col>
+      <ion-col col-12 col-sm-12 col-md-12 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6>
+          <!---Input field username-->
+          <ion-item no-padding transparent>
+            <ion-label floating>Username</ion-label>
+            <ion-input required type="text" [(ngModel)]="username"></ion-input>
+          </ion-item>
+          <!---Input field password-->
+          <ion-item no-padding transparent>
+            <ion-label floating>Password</ion-label>
+            <ion-input required type="password" [(ngModel)]="password"></ion-input>
+          </ion-item>
+          <!---Login button-->
+          <div style="text-align:center">
+          <button ion-button color="danger"  (click)="onEvent('onLogin')">Login</button></div>
+      </ion-col>
+      <!---Share Section-->
+      <ion-col col-12 col-sm-12 col-md-12 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6 social>
+        <!---Facebook button-->
+        <button ion-button round outline color="facebook" (click)="onEvent('onFacebook')">Windows Identity</button>
+        <!---Twitter button-->
+        <button ion-button round outline color="twitter" (click)="onEvent('onTwitter')">ADFS</button>
+        
+      </ion-col><!---End Share Section-->
+      
+    </ion-row>
+  </ion-grid>
+  </ion-content>
+  

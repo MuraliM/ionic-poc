@@ -1,0 +1,27 @@
+<ion-header></ion-header>
+<ion-content has-header white-background>
+  <ion-grid>
+    <ion-row wrap padding>
+      <ion-col col-12 col-sm-12 col-md-12 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6>
+        <button ion-button button-clear clear (click)="onEvent('onSkip')">Skip</button>
+        <!---Logo-->
+        <img [src]="data.logo">
+        <!---Input field username-->
+        <ion-item no-padding transparent>
+          <ion-label floating>Username</ion-label>
+          <ion-input required type="text" [(ngModel)]="username"></ion-input>
+        </ion-item>
+        <!---Input field password-->
+        <ion-item no-padding transparent>
+          <ion-label floating>password</ion-label>
+          <ion-input required type="password" [(ngModel)]="password"></ion-input>
+        </ion-item>
+        <!---Login button-->
+        <div style="text-align:center">
+        <button ion-button  outline (click)="onEvent('onLogin')">Login</button>
+      </div>
+      </ion-col>
+    </ion-row>
+    </ion-grid>
+    </ion-content>
+  
