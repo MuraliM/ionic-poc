@@ -1,0 +1,51 @@
+<ion-header>
+        <ion-navbar primary>
+          <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+          </button>
+          <ion-title>Samples</ion-title>
+        </ion-navbar>
+      </ion-header>
+      <!--Theme Styled cards-->
+    <ion-content>
+        <ion-grid no-padding>
+          <ion-row>
+            <ion-col col-12 col-md-12 col-lg-6 *ngFor="let item of sampleList;let i = index">
+                  <ion-card padding text-right class="card" (click)="gotoSample(item, $event)">
+                    <div left class="card-img">
+                      <img  src="{{item.image}}" style="max-height:100px; max-width:100px" />
+                    </div>
+                    <!--Card-content-->
+                    <ion-card-content>
+                        <ion-icon>
+                            <i class="icon {{item.iconSlider}}"></i>
+                          </ion-icon>
+                      <ion-card-title no-padding>
+                        <h2 card-title>{{item.id}}</h2>
+                      </ion-card-title>
+                      <h3 card-subtitle>Roiund: {{item.round}}</h3>
+                      <h3 card-subtitle>Color: {{item.color}}</h3>                      
+                      <!---Social share-->
+                      <div social>
+                        <ion-icon>
+                          <i icon-small ng-if="item.commentCount>0" class="icon icon-comment" (click)="onEvent('onLike', item, $event)"></i>{{item.commentCount}}
+                        </ion-icon>
+                        <ion-icon>
+                          <i icon-small ng-if="item.iconFavorite" class="icon {{item.iconFavorite}}" (click)="onEvent('onFavorite', item, $event)"></i>
+                        </ion-icon>
+                        <ion-icon>
+                          <i icon-small ng-if="item.iconShare" class="icon {{item.iconShare}}" (click)="onEvent('onShare', item, $event)"></i>
+                        </ion-icon>
+                      </div>
+                    </ion-card-content>
+                  </ion-card>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-content>
+      <!-- Fab Button -->
+      <ion-fab #fab bottom right>
+        <button button-ion-fab ion-fab (click)="onEvent(null, $event)">
+            <ion-icon name="add"></ion-icon>
+        </button>
+      </ion-fab>

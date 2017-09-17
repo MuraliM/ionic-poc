@@ -1,0 +1,64 @@
+<ion-header>
+    <ion-navbar primary>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>{{productMenuText}}</ion-title>
+
+    </ion-navbar>
+</ion-header>
+<!-- Themes Register + logo -->
+<ion-content has-header background-size default-background>
+
+    <ion-grid>
+        <ion-row wrap padding>
+            <ion-col col-12 col-sm-12 col-md-12 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6>
+                <!--Form-->
+                <div class="form">
+                    <ion-item no-padding>
+                        <ion-label floating>Name</ion-label>
+                        <ion-input required type="text" [(ngModel)]="product.name"></ion-input>
+                    </ion-item>
+                    <ion-item no-padding>
+                        <ion-label floating>Product ID</ion-label>
+                        <ion-input required type="text" [(ngModel)]="product.id"></ion-input>
+                    </ion-item>
+                    <ion-item no-padding>
+                        <ion-label floating>Department</ion-label>
+                        <ion-select [(ngModel)]="selectedDepartment">
+                            <ion-option value="nes">NES</ion-option>
+                            <ion-option value="n64">Nintendo64</ion-option>
+                            <ion-option value="ps">PlayStation</ion-option>
+                            <ion-option value="genesis">Sega Genesis</ion-option>
+                            <ion-option value="saturn">Sega Saturn</ion-option>
+                            <ion-option value="snes">SNES</ion-option>
+                        </ion-select>
+                    </ion-item>
+                    <ion-item no-padding>
+                        <ion-label floating>Season</ion-label>
+                        <ion-select [(ngModel)]="selectedSeason">
+                            <ion-option value="nes">201802</ion-option>
+                            <ion-option value="nes">201801</ion-option>
+                            <ion-option value="n64">201706</ion-option>
+                            <ion-option value="ps">201705</ion-option>
+                            <ion-option value="genesis">201704</ion-option>
+                            <ion-option value="saturn">201703</ion-option>
+
+                        </ion-select>
+                    </ion-item>
+                    
+                        
+                        <ion-fab #fab top right edge>
+                                <button color="light" ion-fab mini (click)="getoProductSamples(product, $event)" >
+                                    <ion-icon color="danger" name="shirt"></ion-icon>
+                                </button>
+                              </ion-fab>
+
+                        <button ion-button right color="danger" (click)="onProductSave(product, $event)">{{saveButtonText}}</button>
+                    
+
+                </div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

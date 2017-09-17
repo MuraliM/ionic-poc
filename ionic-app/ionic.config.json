@@ -1,8 +1,8 @@
 {
-  "name": "Sample Handling",
+  "name": "SampleHandling",
+  "app_id": "",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}
-  },
-  "app_id": "2a1b6c0e"
+  }
 }

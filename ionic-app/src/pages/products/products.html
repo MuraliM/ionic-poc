@@ -11,7 +11,7 @@
     <ion-grid no-padding>
       <ion-row>
         <ion-col col-12 col-md-12 col-lg-6 *ngFor="let item of items;let i = index">
-              <ion-card padding text-right class="card" (click)="onEvent('onItemClick', item.title, $event)">
+              <ion-card padding text-right class="card" (click)="onEvent(item, $event)">
                 <div left class="card-img">
                   <img  src="{{item.image}}" style="max-height:100px; max-width:100px" />
                 </div>
@@ -46,7 +46,7 @@
   </ion-content>
   <!-- Fab Button -->
 <ion-fab #fab bottom right>
-    <button button-ion-fab ion-fab (click)="onEvent('onFab', data, $event)">
+    <button button-ion-fab ion-fab (click)="onEvent(null, $event)">
         <ion-icon name="add"></ion-icon>
     </button>
   </ion-fab>

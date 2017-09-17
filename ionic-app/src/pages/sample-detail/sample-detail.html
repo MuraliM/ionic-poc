@@ -1,0 +1,212 @@
+<ion-header>
+    <ion-navbar primary>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>{{productMenuText}}</ion-title>
+        
+    </ion-navbar>
+</ion-header>
+<!-- Themes Register + logo -->
+<ion-content background-size default-background>
+
+
+    <ion-card>
+        <ion-item>
+            <ion-avatar item-start>
+                <img [src]="sample.product.image">
+            </ion-avatar>
+            <h2>{{sample.product.name}}</h2>
+            <p>{{sample.round}}</p>
+
+            
+        </ion-item>
+        <div full class="card-img">
+            <img *ngIf="this.sample.image" [src]="sample.image" style="max-height:450px" /></div>
+
+
+
+
+    </ion-card>
+    <ion-row>
+
+        <ion-col>
+                <ion-fab>
+                        <button ion-fab color="danger" mini><ion-icon name="arrow-dropup"></ion-icon></button>
+                        <ion-fab-list  side="top">
+                            <button ion-fab><ion-icon name="logo-facebook"></ion-icon>
+                                <ion-label>Edit Informatin</ion-label>
+                            </button>
+                            <button ion-fab><ion-icon name="logo-twitter"></ion-icon>
+                                <ion-label>Send to PO</ion-label>
+                            </button>
+                            <button ion-fab><ion-icon name="logo-vimeo"></ion-icon>
+                                <ion-label>Generate QR Code</ion-label>
+                            </button>                            
+                        </ion-fab-list>
+                    </ion-fab>
+            <button ion-fab mini *ngIf="this.sample.image" right><ion-icon name="remove" (click)="removePicture()"></ion-icon></button>
+            <button ion-fab mini *ngIf="this.sample.image" right><ion-icon name="create"></ion-icon></button>
+
+            <button ion-fab mini right (click)="openGallery()"><ion-icon name="images" ></ion-icon></button>
+            <button ion-fab mini right (click)="takePicture()"><ion-icon name="camera"></ion-icon></button>
+
+
+
+        </ion-col>
+    </ion-row>
+    <ion-card>
+        <ion-card-content>
+
+            <ion-grid>
+                <ion-row wrap padding>
+                    <ion-col col-12 col-sm-12 col-md-12 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6>
+                        <!--Form-->
+                        <div class="form">
+                            <ion-item no-padding>
+                                <ion-label floating>Sample ID</ion-label>
+                                <ion-input required type="text" [(ngModel)]="sample.id"></ion-input>
+                            </ion-item>
+                            <ion-item no-padding>
+                                <ion-label floating>Round</ion-label>
+                                <ion-select [(ngModel)]="sample.roundid">
+                                    <ion-option value="1">1 D/S</ion-option>
+                                    <ion-option value="2">2 D/S</ion-option>
+                                </ion-select>
+                            </ion-item>
+                            <ion-item no-padding>
+                                <ion-label floating>Color</ion-label>
+                                <ion-input required type="text" [(ngModel)]="sample.color"></ion-input>
+                            </ion-item>
+                        </div>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+
+            <ion-card>
+                <ion-card-header>
+                    Material (1 record)
+                </ion-card-header>
+                <ion-card-content>
+                    <ion-grid>
+                        <ion-row wrap padding>
+                            <ion-col col-12 col-sm-12 col-md-12 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6>
+                                <!--Form-->
+                                <div class="form">
+                                    <ion-item no-padding>
+                                        <ion-label floating>Upper Quality</ion-label>
+                                        <ion-input required type="text" value="Paper"></ion-input>
+                                    </ion-item>
+                                    <ion-item no-padding>
+                                        <ion-label floating>Upper Color</ion-label>
+                                        <ion-input required type="text" value="Natural"></ion-input>
+                                    </ion-item>
+                                    <ion-item no-padding>
+                                        <ion-label floating>Lining Quality</ion-label>
+                                        <ion-input required type="text" value="Paper"></ion-input>
+                                    </ion-item>
+                                    <ion-item no-padding>
+                                        <ion-label floating>Outsole Material</ion-label>
+                                        <ion-input required type="text" value="Paper"></ion-input>
+                                    </ion-item>
+                                    <ion-item no-padding>
+                                        <ion-label floating>Outsole Color</ion-label>
+                                        <ion-input required type="text" value="White"></ion-input>
+                                    </ion-item>
+                                    <ion-item no-padding>
+                                        <ion-label floating>Trims</ion-label>
+                                        <ion-input required type="text" value=""></ion-input>
+                                    </ion-item>
+                                    <ion-item no-padding>
+                                        <ion-label floating>Laces</ion-label>
+                                        <ion-input required type="text" value=""></ion-input>
+                                    </ion-item>
+                                    <ion-item no-padding>
+                                        <ion-label floating>Last</ion-label>
+                                        <ion-input required type="text" value="Last number"></ion-input>
+                                    </ion-item>
+                                    <ion-item no-padding>
+                                        <ion-label floating>Side Height</ion-label>
+                                        <ion-input required type="text" value=""></ion-input>
+                                    </ion-item>
+                                    <ion-item no-padding>
+                                        <ion-label floating>Back Height</ion-label>
+                                        <ion-input required type="text" value=""></ion-input>
+                                    </ion-item>
+                                    <ion-item no-padding>
+                                        <ion-label floating>Heel Height</ion-label>
+                                        <ion-input required type="text" value=""></ion-input>
+                                    </ion-item>
+                                </div>
+                            </ion-col>
+                        </ion-row>
+                    </ion-grid>
+                </ion-card-content>
+            </ion-card>
+
+            <ion-grid>
+                <ion-row wrap padding>
+                    <ion-col col-12 col-sm-12 col-md-12 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6>
+                        <!--Form-->
+                        <div class="form">
+                            <ion-item no-padding>
+                                <ion-label floating>Sample Date</ion-label>
+                                <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="sample.date"></ion-datetime>
+                            </ion-item>
+                            <ion-item no-padding>
+                                <ion-label floating>Purpose Of Sample</ion-label>
+                                <ion-select [(ngModel)]="sample.roundid">
+                                    <ion-option value="1">Look/Fitting </ion-option>
+                                    <ion-option value="2">Counter</ion-option>
+
+                                </ion-select>
+                            </ion-item>
+                            <ion-item no-padding>
+                                <ion-label floating>Suppier</ion-label>
+                                <ion-input required type="text" [(ngModel)]="sample.color"></ion-input>
+                            </ion-item>
+
+                        </div>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+            <ion-list radio-group>
+                <ion-list-header>
+                    Sample Assessments (1 record)
+                </ion-list-header>
+
+                <ion-item>
+                    <ion-label>OK</ion-label>
+                    <ion-radio value="go"></ion-radio>
+                </ion-item>
+
+                <ion-item>
+                    <ion-label>OKC</ion-label>
+                    <ion-radio checked="true" value="rust"></ion-radio>
+                </ion-item>
+
+                <ion-item>
+                    <ion-label>NOK</ion-label>
+                    <ion-radio value="python"></ion-radio>
+                </ion-item>
+                <ion-item>
+                    <ion-label>Default</ion-label>
+                    <ion-radio value=""></ion-radio>
+                </ion-item>
+            </ion-list>
+            <ion-card>
+                <ion-card-header>Sample comments ({{sample.commentCount}})</ion-card-header>
+                <ion-card-content>
+
+                </ion-card-content>
+            </ion-card>
+            <ion-item>
+                <button ion-button left color="primary" (click)="gotoHomePage()"><ion-icon name="home" ></ion-icon>Goto Portal</button>
+                <button ion-button right color="danger" (click)="onSampleSave(sample, $event)">{{saveButtonText}}</button>
+            </ion-item>
+        </ion-card-content>
+    </ion-card>
+
+
+
+</ion-content>

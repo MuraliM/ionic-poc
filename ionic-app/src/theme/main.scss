@@ -147,7 +147,7 @@ $list-ios-activated-background-color: theme-colors('mainColors', 'accent');
 $item-body-background-color: theme-colors('mainColors', 'accent') !default;
 
 // Black&White Avatar and Image
-ion-avatar, ion-thumbnail {
+ion-thumbnail {
   -webkit-filter: grayscale(100%);
     filter: grayscale(100%);
 }
@@ -563,10 +563,6 @@ $searchbar-md-input-clear-icon-color: theme-colors('textColors', 'secondary');
 [white-background] {
   background-color: theme-colors('mainColors', 'accent') !important;
 }
-//Default Overview Ionic
-  [has-header] .scroll-content{
-    top: 56px;
-  }
 
 
   Settings header for IOS

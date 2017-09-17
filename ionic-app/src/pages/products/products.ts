@@ -1,23 +1,25 @@
 import { Component, Input, ViewChild } from '@angular/core';
 import { Content, FabButton } from 'ionic-angular';
 import { NavController, MenuController } from 'ionic-angular';
+import { ProductService } from '../../services/ProductService';
+import { ProductDetailPage } from '../product-detail/product-detail';
 
 @Component({
-  selector: 'page-products',
-  templateUrl: 'products.html'
+    selector: 'page-products',
+    templateUrl: 'products.html',
+    providers: [ProductService]
 })
 export class ProductsPage {
 
-  @Input() data: any;
-  @Input() events: any;
-  @ViewChild(Content)
-  content: Content;
-  @ViewChild(FabButton)
-  fabButton: FabButton;
-
- public items:any= [
+    @Input() data: any;
+    @Input() events: any;
+    @ViewChild(Content)
+    content: Content;
+    @ViewChild(FabButton)
+    fabButton: FabButton;    
+    items=[
     {
-        id: 1,
+        id: '15B34A09',
         name: 'Stadium Yellow',
         description: 'T-shirt with a print motif',
         image: 'assets/images/products/1.jpg',
@@ -27,7 +29,7 @@ export class ProductsPage {
         iconUndo: 'icon-undo-variant'
     },
     {
-        id: 2,
+        id: '7BB34A08',
         name: 'ProductName',
         description: 'Lorem ipsum dolor sit amet, consectetur',
         image: 'assets/images/products/2.jpg',
@@ -37,7 +39,7 @@ export class ProductsPage {
         iconUndo: 'icon-undo-variant'
     },
     {
-        id: 3,
+        id: 'ABB34A0C',
         name: 'ProductName',
         description: 'Lorem ipsum dolor sit amet, consectetur',
         image: 'assets/images/products/3.jpg',
@@ -47,7 +49,7 @@ export class ProductsPage {
         iconUndo: 'icon-undo-variant'
     },
     {
-        id: 4,
+        id: 'CC34A08',
         name: 'ProductName',
         description: 'Lorem ipsum dolor sit amet, consectetur',
         image: 'assets/images/products/6.jpg',
@@ -57,7 +59,7 @@ export class ProductsPage {
         iconUndo: 'icon-undo-variant'
     },
     {
-        id: 5,
+        id: 'D67BC890',
         name: 'ProductName',
         description: 'Lorem ipsum dolor sit amet, consectetur',
         image: 'assets/images/products/4.jpg',
@@ -67,7 +69,7 @@ export class ProductsPage {
         iconUndo: 'icon-undo-variant'
     },
     {
-        id: 6,
+        id: 'D67BC850',
         name: 'ProductName',
         description: 'Lorem ipsum dolor sit amet, consectetur',
         image: 'assets/images/products/1.jpg',
@@ -77,7 +79,7 @@ export class ProductsPage {
         iconUndo: 'icon-undo-variant'
     },
     {
-        id: 7,
+        id: 'F67BC894',
         name: 'ProductName',
         description: 'Lorem ipsum dolor sit amet, consectetur',
         image: 'assets/images/products/4.jpg',
@@ -87,7 +89,7 @@ export class ProductsPage {
         iconUndo: 'icon-undo-variant'
     },
     {
-        id: 8,
+        id: 'BBBC888',
         name: 'ProductName',
         description: 'Lorem ipsum dolor sit amet, consectetur',
         image: 'assets/images/products/5.jpg',
@@ -97,7 +99,7 @@ export class ProductsPage {
         iconUndo: 'icon-undo-variant'
     },
     {
-        id: 9,
+        id: 'DABDF356',
         name: 'ProductName',
         description: 'Lorem ipsum dolor sit amet, consectetur',
         image: 'assets/images/products/3.jpg',
@@ -106,19 +108,19 @@ export class ProductsPage {
         iconDelate: 'icon-delete',
         iconUndo: 'icon-undo-variant'
     }
-]
-  constructor(public nav: NavController, private menuCtrl:MenuController) {
-    
-    this.menuCtrl.enable(true);
-  }
+];
 
-  onEvent(event: string, item: any, e: any) {
-    if (e) {
-        e.stopPropagation();
+    constructor(public nav: NavController, private menuCtrl: MenuController, private productService: ProductService, ) {
+       
+        
+        this.menuCtrl.enable(true);
     }
-    // if (this.events[event]) {
-    //     this.events[event](item);
-    // }
-}
+
+    onEvent(item: any, e: any) {
+        if (e) {
+            e.stopPropagation();
+        }
+        this.nav.push(ProductDetailPage, item);
+    }
 
 }
