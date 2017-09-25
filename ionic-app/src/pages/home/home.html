@@ -3,10 +3,8 @@
   <ion-grid>
     <ion-row padding>
         <ion-col col-12 col-sm-12 col-md-12 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6>
-            <ion-col col-4 col-sm-2>
-                <img right large src="assets/images/logo/hm.png">
-              </ion-col> 
-            <ion-col left color="primary" col-8 col-sm-10>
+           
+            <ion-col  color="primary" col-8 col-sm-10>
                
               <ion-icon name="shirt" style="font-size:2em" color="danger"  item-start></ion-icon>
               <span  style="font-size:1.4em"> SAMPLE HANDLING</span>
@@ -27,19 +25,15 @@
             <ion-label floating>Password</ion-label>
             <ion-input required type="password" [(ngModel)]="password"></ion-input>
           </ion-item>
-          <!---Login button-->
-          <div style="text-align:center">
-          <button ion-button color="danger"  (click)="onEvent('onLogin')">Login</button></div>
-      </ion-col>
-      <!---Share Section-->
-      <ion-col col-12 col-sm-12 col-md-12 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6 social>
-        <!---Facebook button-->
-        <button ion-button round outline color="facebook" (click)="onEvent('onFacebook')">Windows Identity</button>
-        <!---Twitter button-->
-        <button ion-button round outline color="twitter" (click)="onEvent('onTwitter')">ADFS</button>
         
-      </ion-col><!---End Share Section-->
+      </ion-col>
+     
       
+    </ion-row>
+    <ion-row>
+      <ion-col  col-12 col-sm-12 col-md-12 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6>
+        <button ion-button right color="danger"  (click)="onEvent('onLogin')">Login</button>
+    </ion-col>    
     </ion-row>
   </ion-grid>
   </ion-content>

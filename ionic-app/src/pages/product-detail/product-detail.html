@@ -8,7 +8,7 @@
     </ion-navbar>
 </ion-header>
 <!-- Themes Register + logo -->
-<ion-content has-header background-size default-background>
+<ion-content has-header background-size>
 
     <ion-grid>
         <ion-row wrap padding>
@@ -17,45 +17,49 @@
                 <div class="form">
                     <ion-item no-padding>
                         <ion-label floating>Name</ion-label>
-                        <ion-input required type="text" [(ngModel)]="product.name"></ion-input>
+                        <ion-input [readonly]="!newProduct" required type="text" [(ngModel)]="product.name"></ion-input>
                     </ion-item>
                     <ion-item no-padding>
                         <ion-label floating>Product ID</ion-label>
-                        <ion-input required type="text" [(ngModel)]="product.id"></ion-input>
+                        <ion-input required type="text" [readonly]="!newProduct" [(ngModel)]="product.id"></ion-input>
                     </ion-item>
                     <ion-item no-padding>
-                        <ion-label floating>Department</ion-label>
-                        <ion-select [(ngModel)]="selectedDepartment">
-                            <ion-option value="nes">NES</ion-option>
-                            <ion-option value="n64">Nintendo64</ion-option>
-                            <ion-option value="ps">PlayStation</ion-option>
-                            <ion-option value="genesis">Sega Genesis</ion-option>
-                            <ion-option value="saturn">Sega Saturn</ion-option>
-                            <ion-option value="snes">SNES</ion-option>
+                        <ion-label floating class="opacity-full">Department</ion-label>
+                        <ion-select required class="opacity-full" [disabled]="!newProduct" [(ngModel)]="product.department">
+                            <ion-option value="Jackets">Jackets</ion-option>
+                            <ion-option value="Jeans">Jeans</ion-option>
+                            <ion-option value="Ladies Wear">Ladies wear</ion-option>
+                            <ion-option value="Shirts">Shirts</ion-option>
+                            <ion-option value="Skirts">Skirts</ion-option>
+                            <ion-option value="TShirts">TShirts</ion-option>
+                            <ion-option value="Tops">Tops</ion-option>
+                            
+                            
                         </ion-select>
                     </ion-item>
                     <ion-item no-padding>
-                        <ion-label floating>Season</ion-label>
-                        <ion-select [(ngModel)]="selectedSeason">
-                            <ion-option value="nes">201802</ion-option>
-                            <ion-option value="nes">201801</ion-option>
-                            <ion-option value="n64">201706</ion-option>
-                            <ion-option value="ps">201705</ion-option>
-                            <ion-option value="genesis">201704</ion-option>
-                            <ion-option value="saturn">201703</ion-option>
+                        <ion-label floating class="opacity-full">Season</ion-label>
+                        <ion-select required class="opacity-full" [disabled]="!newProduct" [(ngModel)]="product.season">
+                            <ion-option value="201802">201802</ion-option>
+                            <ion-option value="201801">201801</ion-option>
+                            <ion-option value="201706">201706</ion-option>
+                            <ion-option value="201705">201705</ion-option>
+                            <ion-option value="201704">201704</ion-option>
+                            <ion-option value="201503">201703</ion-option>
 
                         </ion-select>
                     </ion-item>
-                    
-                        
-                        <ion-fab #fab top right edge>
-                                <button color="light" ion-fab mini (click)="getoProductSamples(product, $event)" >
-                                    <ion-icon color="danger" name="shirt"></ion-icon>
-                                </button>
-                              </ion-fab>
 
-                        <button ion-button right color="danger" (click)="onProductSave(product, $event)">{{saveButtonText}}</button>
-                    
+
+
+                    <br/>
+
+                    <button ion-button right color="danger" *ngIf="newProduct" (click)="onProductSave(product, $event)">{{saveButtonText}}</button>
+
+                    <button ion-button right color="danger" outline item-end icon-left *ngIf="!newProduct" (click)="getoProductSamples(product, $event)">
+                        <ion-icon name="shirt"></ion-icon>
+                        Add Samples
+                      </button>
 
                 </div>
             </ion-col>

@@ -1,0 +1,31 @@
+<ion-header>
+    <ion-navbar primary>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>QR Code</ion-title>
+
+    </ion-navbar>
+</ion-header>
+
+<ion-content has-header background-size default-background>
+
+    <ion-card>
+        <ion-card-content>
+            <ngx-qrcode [qrc-value]="sample.qrCode"></ngx-qrcode>
+        </ion-card-content>
+    </ion-card>
+    <ion-row>
+
+        <ion-col>
+          
+            <button ion-fab mini  (click)="attachCode()"right><ion-icon name="pricetags"></ion-icon></button>            
+
+            <button ion-fab mini right (click)="printCode()"><ion-icon name="print" ></ion-icon></button>
+            <button ion-fab mini right (click)="emailCode()"><ion-icon name="mail"></ion-icon></button>
+
+
+
+        </ion-col>
+    </ion-row>
+</ion-content>

@@ -4,7 +4,14 @@
             <ion-icon name="menu"></ion-icon>
         </button>
         <ion-title>{{productMenuText}}</ion-title>
-        
+        <ion-buttons end>
+
+            <button color="danger" (click)="presentSampleActions()" ion-fab="" mini="" class="fab fab-md fab-md-danger" ng-reflect-color="danger">
+                        <ion-icon class="fab-close-icon icon icon-md ion-md-close" name="close" role="img" aria-label="close" ng-reflect-name="close"></ion-icon>
+                        <span class="button-inner">
+                        <ion-icon name="arrow-dropdown">
+                        </ion-icon></span><div class="button-effect"></div></button>
+        </ion-buttons>
     </ion-navbar>
 </ion-header>
 <!-- Themes Register + logo -->
@@ -19,7 +26,7 @@
             <h2>{{sample.product.name}}</h2>
             <p>{{sample.round}}</p>
 
-            
+
         </ion-item>
         <div full class="card-img">
             <img *ngIf="this.sample.image" [src]="sample.image" style="max-height:450px" /></div>
@@ -31,20 +38,7 @@
     <ion-row>
 
         <ion-col>
-                <ion-fab>
-                        <button ion-fab color="danger" mini><ion-icon name="arrow-dropup"></ion-icon></button>
-                        <ion-fab-list  side="top">
-                            <button ion-fab><ion-icon name="logo-facebook"></ion-icon>
-                                <ion-label>Edit Informatin</ion-label>
-                            </button>
-                            <button ion-fab><ion-icon name="logo-twitter"></ion-icon>
-                                <ion-label>Send to PO</ion-label>
-                            </button>
-                            <button ion-fab><ion-icon name="logo-vimeo"></ion-icon>
-                                <ion-label>Generate QR Code</ion-label>
-                            </button>                            
-                        </ion-fab-list>
-                    </ion-fab>
+          
             <button ion-fab mini *ngIf="this.sample.image" right><ion-icon name="remove" (click)="removePicture()"></ion-icon></button>
             <button ion-fab mini *ngIf="this.sample.image" right><ion-icon name="create"></ion-icon></button>
 
@@ -72,6 +66,10 @@
                                 <ion-select [(ngModel)]="sample.roundid">
                                     <ion-option value="1">1 D/S</ion-option>
                                     <ion-option value="2">2 D/S</ion-option>
+                                    <ion-option value="3">3 D/S</ion-option>
+                                    <ion-option value="4">4 D/S</ion-option>
+                                    <ion-option value="5">5 D/S</ion-option>
+
                                 </ion-select>
                             </ion-item>
                             <ion-item no-padding>
@@ -83,13 +81,13 @@
                 </ion-row>
             </ion-grid>
 
-            <ion-card>
-                <ion-card-header>
-                    Material (1 record)
+            <ion-card style="padding-left:0px; padding-right:0px;">
+                <ion-card-header style="padding:0px">
+                    <button ion-button full>Material</button>
                 </ion-card-header>
                 <ion-card-content>
                     <ion-grid>
-                        <ion-row wrap padding>
+                        <ion-row wrap>
                             <ion-col col-12 col-sm-12 col-md-12 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6>
                                 <!--Form-->
                                 <div class="form">
@@ -155,55 +153,40 @@
                             </ion-item>
                             <ion-item no-padding>
                                 <ion-label floating>Purpose Of Sample</ion-label>
-                                <ion-select [(ngModel)]="sample.roundid">
-                                    <ion-option value="1">Look/Fitting </ion-option>
-                                    <ion-option value="2">Counter</ion-option>
+                                <ion-select [(ngModel)]="sample.purpose">
+                                    <ion-option value="Look/Fitting">Look/Fitting </ion-option>
+                                    <ion-option value="Color">Color</ion-option>
+                                    <ion-option value="Material">Material</ion-option>
 
                                 </ion-select>
                             </ion-item>
-                            <ion-item no-padding>
-                                <ion-label floating>Suppier</ion-label>
-                                <ion-input required type="text" [(ngModel)]="sample.color"></ion-input>
-                            </ion-item>
+                            <ion-item no-padding>                                                             
 
+                               
+
+                            </ion-item>
+                            
+                            <ion-item no-padding>
+                                <ion-label floating>Sample Assessments</ion-label>
+                                <ion-select [(ngModel)]="sample.roundid">
+                                    <ion-option value="1">OK </ion-option>
+                                    <ion-option value="2">OKC</ion-option>
+                                    <ion-option value="3">NOKC</ion-option>
+                                    <ion-option value="4">Default</ion-option>
+                                </ion-select>
+                            </ion-item>
                         </div>
                     </ion-col>
                 </ion-row>
             </ion-grid>
-            <ion-list radio-group>
-                <ion-list-header>
-                    Sample Assessments (1 record)
-                </ion-list-header>
 
-                <ion-item>
-                    <ion-label>OK</ion-label>
-                    <ion-radio value="go"></ion-radio>
-                </ion-item>
-
-                <ion-item>
-                    <ion-label>OKC</ion-label>
-                    <ion-radio checked="true" value="rust"></ion-radio>
-                </ion-item>
-
-                <ion-item>
-                    <ion-label>NOK</ion-label>
-                    <ion-radio value="python"></ion-radio>
-                </ion-item>
-                <ion-item>
-                    <ion-label>Default</ion-label>
-                    <ion-radio value=""></ion-radio>
-                </ion-item>
-            </ion-list>
             <ion-card>
                 <ion-card-header>Sample comments ({{sample.commentCount}})</ion-card-header>
                 <ion-card-content>
 
                 </ion-card-content>
             </ion-card>
-            <ion-item>
-                <button ion-button left color="primary" (click)="gotoHomePage()"><ion-icon name="home" ></ion-icon>Goto Portal</button>
-                <button ion-button right color="danger" (click)="onSampleSave(sample, $event)">{{saveButtonText}}</button>
-            </ion-item>
+
         </ion-card-content>
     </ion-card>
 

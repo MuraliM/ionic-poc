@@ -15,7 +15,7 @@ export class MyApp {
   
     rootPage: any = HomePage;
   
-    pages: Array<{title: string, component: any}>;
+    pages: Array<{title: string, component: any, icon: string,iconcolor: string}>;
   
     constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
       this.initializeApp();
@@ -23,8 +23,9 @@ export class MyApp {
       // used for an example of ngFor and navigation
       this.pages = [
         
-        { title: 'Products', component: ProductsPage },
-        { title: 'Sample', component: HomePage }
+        { title: 'Products', component: ProductsPage, icon:'paper-plane',iconcolor:'danger' },
+        { title: 'Samples', component: ProductSamplesPage, icon:'shirt', iconcolor:'secondary'  },
+        { title: 'Logout', component: HomePage, icon:'log-out',iconcolor:'dark'   }
       ];
   
     }

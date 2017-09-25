@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-navbar primary>
+    <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+    <ion-title>Record Menu</ion-title>
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content has-header background-size default-background>
+
+  <ion-list no-border>
+
+
+
+    <ion-item (click)="editSampleInformation()">
+      <ion-icon name="create" item-star></ion-icon> Edit Information
+
+    </ion-item>
+
+
+
+    <ion-item (click)="sendSampleToPO()">
+      <ion-icon name="globe" item-star></ion-icon> Send to PO
+
+    </ion-item>
+
+    <ion-item (click)="gotoQRCodePage()">
+      <i class="icon icon-qrcode dark" item-start></i> Generate QR Code
+
+    </ion-item>
+
+
+
+  </ion-list>
+</ion-content>

@@ -1,7 +1,9 @@
 import { Component, Input } from '@angular/core';
+import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
 
 import { NavController, MenuController, NavParams } from 'ionic-angular';
 import { ProductSamplesPage } from '../product-samples/product-samples';
+import { ToastController } from 'ionic-angular';
 
 @Component({
     selector: 'page-product-detail',
@@ -11,58 +13,65 @@ export class ProductDetailPage {
 
     @Input() data: any;
     @Input() events: any;
-    departmentList: any;
-    
-    saveButtonText='Add Product';
-    productMenuText='Add Product';
+    departments: any;
+    newProduct = true;
+    saveButtonText = 'Add Product';
+    productMenuText = 'Add Product';
+    productDetailForm: FormGroup;
 
-    product= {
-        name:'',        
-        department:'',
-        season:''
+    product = {
+        name: '',
+        department: '',
+        season: ''
     };
 
-    constructor(public nav: NavController, private menuCtrl: MenuController, private navParams:NavParams) {
+    constructor(public nav: NavController, private menuCtrl: MenuController, private navParams: NavParams
+        , private toastCtrl: ToastController, public formBuilder: FormBuilder) {
 
-        this.departmentList = [
-            { name: '1023 - Nivea Beaute' },
-            { name: '1024 - Maybelline' },
-            { name: '1019 - Own Production' },
-            { name: '1026 - Mineral Make-up' },
-            { name: '1073 - Other' },
-            { name: '1075 - Man' },
-            { name:'1076 -LOreal'}
-        ]
+        this.departments = [
+            'Jackets'
+            , 'Jeans'
+            , 'Ladies Wear'
+            , 'Shirts'
+            , 'Skirts'
+            , 'TShirts'
+            , 'Tops'];
 
-        if(this.navParams.data.id){            
-            
-            this.product=this.navParams.data;
-            this.saveButtonText='Save Product';            
-            this.productMenuText=this.navParams.data.name;
+        if (this.navParams.data.id) {
+            this.newProduct = false;
+            this.product = this.navParams.data;
+            this.saveButtonText = 'Save Product';
+            this.productMenuText = this.navParams.data.name;
         }
     }
 
+    ionViewWillLoad() {
+
+    }
     gotoProducts() {
 
     }
 
     getoProductSamples(item: any, e: any) {
-       
+
         this.nav.push(ProductSamplesPage, item);
     }
 
-    filterItems(searchTerm) {
-
-        return this.departmentList.filter((item) => {
-            return item.name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1;
-        });
-
-    }
+    
 
     onProductSave(item: any, e: any) {
-        if (e) {
-            e.stopPropagation();
-        }
+        let toast = this.toastCtrl.create({
+            message: 'Product saved successfully',
+            duration: 3000,
+            position: 'bottom',
+            cssClass: 'danger'
+        });
+
+        toast.onDidDismiss(() => {
+
+        });
+
+        toast.present();
         this.nav.pop();
     }
 

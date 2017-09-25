@@ -1,9 +1,9 @@
 
 <ion-split-pane when="md">
-        <ion-menu [content]="content">
+        <ion-menu [content]="content" >
           <ion-header>
             <div class="header-background-image">
-                <img src="assets/images/logo/login-3.png">
+                <img src="assets/images/logo/logo-4.png">
             <h2 item-title text-center>SAMPLE HANDLING</h2>
             </div>
           </ion-header>
@@ -12,8 +12,8 @@
             <ion-list no-margin>
               <button menuClose paddinge-left ion-item no-lines item-title main-menu
                 *ngFor="let p of pages" (click)="openPage(p)">
-                <ion-icon icon-small item-left>
-                  <i class="icon {{p.icon}}"></i>
+                <ion-icon [name]="p.icon" [color]="p.iconcolor" item-left>
+                  
                 </ion-icon>
                 {{p.title}}
               </button>
